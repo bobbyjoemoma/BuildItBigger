@@ -1,19 +1,24 @@
 package com.udacity.gradle.builditbigger;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.tim.JokeSupplier;
+import com.tim.joketeller.JokeTeller;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
+    private JokeSupplier jokeSupplier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        jokeSupplier = new JokeSupplier();
     }
 
 
@@ -40,7 +45,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,JokeTeller.class);
+        intent.putExtra(JokeTeller.JOKE_STRING_EXTRA, jokeSupplier.getJoke());
+        this.startActivity(intent);
+        Toast.makeText(this, jokeSupplier.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
 
