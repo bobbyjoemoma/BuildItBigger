@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\AndroidProjects\BuildItBigger\app\src\androidTest\res"/><source path="F:\AndroidProjects\BuildItBigger\app\build\generated\res\rs\androidTest\paid\debug"/><source path="F:\AndroidProjects\BuildItBigger\app\build\generated\res\generated\androidTest\paid\debug"/></dataSet><dataSet config="androidTestPaid"><source path="F:\AndroidProjects\BuildItBigger\app\src\androidTestPaid\res"/></dataSet><mergedItems/></merger>

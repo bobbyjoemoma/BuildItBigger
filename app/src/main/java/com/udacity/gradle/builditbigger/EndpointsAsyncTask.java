@@ -24,7 +24,7 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private Context context;
     private Callback mCallback;
 
-    EndpointsAsyncTask(Callback callback){
+    public EndpointsAsyncTask(Callback callback){
         mCallback = callback;
     }
 

@@ -20,21 +20,23 @@ android {
     productFlavors {
         free {
             applicationId "com.udacity.gradle.builditbigger.free"
+            targetSdkVersion 15
         }
         paid {
             applicationId "com.udacity.gradle.builditbigger.paid"
+            targetSdkVersion 15
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
     // Added for AdMob
-    compile 'com.google.android.gms:play-services:7.5.0'
+    freeCompile 'com.google.android.gms:play-services:7.5.0'
     //joke library dependencies
-    compile project(":jokesupplier")
-    compile project(":joketeller")
+    compile project(':jokesupplier')
+    compile project(':joketeller')
     //GCE
     compile project(path: ':backend', configuration: 'android-endpoints')
 }

@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.tim.joketeller.MainActivity"
+    android:padding="@dimen/abc_dialog_padding_material"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/joke_textview"
+            android:textColor="@android:color/black"/>
+
+</RelativeLayout><!-- From: file:/F:/AndroidProjects/BuildItBigger/joketeller/src/main/res/layout/joketeller_main.xml --><!-- From: file:/F:/AndroidProjects/BuildItBigger/app/build/intermediates/exploded-aar/BuildItBigger/joketeller/unspecified/res/layout/joketeller_main.xml -->
