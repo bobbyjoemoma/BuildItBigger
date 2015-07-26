@@ -1,8 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.Toast;
 import com.tim.JokeSupplier;
 import com.tim.joketeller.JokeTeller;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements EndpointsAsyncTask.Callback{
     private JokeSupplier jokeSupplier;
 
     @Override
@@ -45,11 +47,20 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void tellJoke(View view){
-        Intent intent = new Intent(this,JokeTeller.class);
-        intent.putExtra(JokeTeller.JOKE_STRING_EXTRA, jokeSupplier.getJoke());
-        this.startActivity(intent);
+        new EndpointsAsyncTask(this).execute();
         Toast.makeText(this, jokeSupplier.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
 
+    @Override
+    public void onEndpointsAsyncTackResponse(String result) {
+        if(result == null){
+            Toast.makeText(this, "error processing joke request", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(this, JokeTeller.class);
+            intent.putExtra(JokeTeller.JOKE_STRING_EXTRA, result);
+            this.startActivity(intent);
+            Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+        }
+    }
 }
