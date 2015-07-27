@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.tim.JokeSupplier;
 import com.tim.joketeller.JokeTeller;
+import com.udacity.gradle.builditbigger.R;
 
 public class MainActivity extends FragmentActivity implements EndpointsAsyncTask.Callback{
     private JokeSupplier jokeSupplier;
